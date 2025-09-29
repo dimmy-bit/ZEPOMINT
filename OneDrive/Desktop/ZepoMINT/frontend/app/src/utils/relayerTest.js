@@ -35,8 +35,8 @@ export async function testRelayerConfig() {
     
     // Test configuration
     const config = {
-      chainId: import.meta.env.VITE_CHAIN_ID || 11155111,
-      gatewayChainId: import.meta.env.VITE_GATEWAY_CHAIN_ID || 55815,
+      chainId: parseInt(import.meta.env.VITE_CHAIN_ID) || 11155111,
+      gatewayChainId: parseInt(import.meta.env.VITE_GATEWAY_CHAIN_ID) || 55815,
       relayerUrl: relayerUrl,
       kmsContractAddress: kmsContractAddress,
       aclContractAddress: import.meta.env.VITE_ACL_CONTRACT || "0x687820221192C5B662b25367F70076A37bc79b6c",

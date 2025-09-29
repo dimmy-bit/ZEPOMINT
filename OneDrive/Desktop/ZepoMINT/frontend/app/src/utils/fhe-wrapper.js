@@ -185,8 +185,8 @@ export async function fetchPublicKey() {
     
     // Create a temporary instance to fetch public key
     const tempInstance = await relayerSDK.createInstance({
-      chainId: import.meta.env.VITE_CHAIN_ID || 11155111,
-      gatewayChainId: import.meta.env.VITE_GATEWAY_CHAIN_ID || 55815,
+      chainId: parseInt(import.meta.env.VITE_CHAIN_ID) || 11155111,
+      gatewayChainId: parseInt(import.meta.env.VITE_GATEWAY_CHAIN_ID) || 55815,
       relayerUrl: import.meta.env.VITE_RELAYER_URL || "https://relayer.testnet.zama.cloud/",
       kmsContractAddress: import.meta.env.VITE_KMS_VERIFIER_CONTRACT || "0x1364cBBf2cDF5032C47d8226a6f6FBD2AFCDacAC",
       aclContractAddress: import.meta.env.VITE_ACL_CONTRACT || "0x687820221192C5B662b25367F70076A37bc79b6c",
@@ -342,8 +342,8 @@ async function createFHEInstanceWithFallback(config, provider) {
     
     // Try to create the instance
     const instanceConfig = {
-      chainId: import.meta.env.VITE_CHAIN_ID || 11155111,
-      gatewayChainId: import.meta.env.VITE_GATEWAY_CHAIN_ID || 55815,
+      chainId: parseInt(import.meta.env.VITE_CHAIN_ID) || 11155111,
+      gatewayChainId: parseInt(import.meta.env.VITE_GATEWAY_CHAIN_ID) || 55815,
       relayerUrl: import.meta.env.VITE_RELAYER_URL || "https://relayer.testnet.zama.cloud/",
       kmsContractAddress: import.meta.env.VITE_KMS_VERIFIER_CONTRACT || "0x1364cBBf2cDF5032C47d8226a6f6FBD2AFCDacAC",
       aclContractAddress: import.meta.env.VITE_ACL_CONTRACT || "0x687820221192C5B662b25367F70076A37bc79b6c",
@@ -374,8 +374,8 @@ async function createFHEInstanceWithFallback(config, provider) {
         
         // Use only the essential parameters without network parameter
         const minimalConfig = {
-          chainId: import.meta.env.VITE_CHAIN_ID || 11155111,
-          gatewayChainId: import.meta.env.VITE_GATEWAY_CHAIN_ID || 55815,
+          chainId: parseInt(import.meta.env.VITE_CHAIN_ID) || 11155111,
+          gatewayChainId: parseInt(import.meta.env.VITE_GATEWAY_CHAIN_ID) || 55815,
           relayerUrl: import.meta.env.VITE_RELAYER_URL || "https://relayer.testnet.zama.cloud/",
           kmsContractAddress: import.meta.env.VITE_KMS_VERIFIER_CONTRACT || "0x1364cBBf2cDF5032C47d8226a6f6FBD2AFCDacAC",
           aclContractAddress: import.meta.env.VITE_ACL_CONTRACT || "0x687820221192C5B662b25367F70076A37bc79b6c",
@@ -536,8 +536,8 @@ export async function getFHEInstance() {
     
     // Create and return a real FHE instance with proper network configuration
     const config = {
-      chainId: envConfig.chainId || 11155111, // Sepolia chain ID
-      gatewayChainId: envConfig.gatewayChainId || 55815, // Gateway chain ID
+      chainId: parseInt(envConfig.chainId) || 11155111, // Sepolia chain ID
+      gatewayChainId: parseInt(envConfig.gatewayChainId) || 55815, // Gateway chain ID
       relayerUrl: relayerUrl || "https://relayer.testnet.zama.cloud",
       kmsContractAddress: kmsContractAddress || "0x1364cBBf2cDF5032C47d8226a6f6FBD2AFCDacAC",
       aclContractAddress: import.meta.env.VITE_ACL_CONTRACT || "0x687820221192C5B662b25367F70076A37bc79b6c",
@@ -559,8 +559,8 @@ export async function getFHEInstance() {
     
     const relayerSDK = window.relayerSDK;
     const instanceConfig = {
-      chainId: import.meta.env.VITE_CHAIN_ID || 11155111,
-      gatewayChainId: import.meta.env.VITE_GATEWAY_CHAIN_ID || 55815,
+      chainId: parseInt(import.meta.env.VITE_CHAIN_ID) || 11155111,
+      gatewayChainId: parseInt(import.meta.env.VITE_GATEWAY_CHAIN_ID) || 55815,
       relayerUrl: import.meta.env.VITE_RELAYER_URL || "https://relayer.testnet.zama.cloud/",
       kmsContractAddress: import.meta.env.VITE_KMS_VERIFIER_CONTRACT || "0x1364cBBf2cDF5032C47d8226a6f6FBD2AFCDacAC",
       aclContractAddress: import.meta.env.VITE_ACL_CONTRACT || "0x687820221192C5B662b25367F70076A37bc79b6c",
@@ -652,8 +652,8 @@ export async function initializeZamaRelayer(relayerUrl) {
     
     // Create a real relayer instance
     const config = {
-      chainId: import.meta.env.VITE_CHAIN_ID || 11155111,
-      gatewayChainId: import.meta.env.VITE_GATEWAY_CHAIN_ID || 55815,
+      chainId: parseInt(import.meta.env.VITE_CHAIN_ID) || 11155111,
+      gatewayChainId: parseInt(import.meta.env.VITE_GATEWAY_CHAIN_ID) || 55815,
       relayerUrl: import.meta.env.VITE_RELAYER_URL || "https://relayer.testnet.zama.cloud/",
       kmsContractAddress: import.meta.env.VITE_KMS_VERIFIER_CONTRACT || "0x1364cBBf2cDF5032C47d8226a6f6FBD2AFCDacAC",
       aclContractAddress: import.meta.env.VITE_ACL_CONTRACT || "0x687820221192C5B662b25367F70076A37bc79b6c",
