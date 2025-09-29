@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import BidForm from '../components/BidForm';
-import WalletInfo from '../components/WalletInfo';
+import WalletInfo from '../components/WalletInfo.jsx';
 import NFTPreview from '../components/NFTPreview';
 import { useAccount, usePublicClient } from 'wagmi';
 import { getCurrentAuction, hasAuctionEnded, getBidCount } from '../utils/contract-interaction';

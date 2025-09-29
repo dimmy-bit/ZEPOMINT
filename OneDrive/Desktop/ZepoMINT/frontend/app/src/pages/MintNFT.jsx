@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useAccount, useWalletClient, usePublicClient } from 'wagmi';
 import { mintNFT, getCurrentAuction } from '../utils/contract-interaction';
-import WalletInfo from '../components/WalletInfo';
+import WalletInfo from '../components/WalletInfo.jsx';
 import NFTPreview from '../components/NFTPreview';
 
 const MintNFT = () => {

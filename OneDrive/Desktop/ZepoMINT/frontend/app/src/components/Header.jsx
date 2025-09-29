@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import WalletInfo from './WalletInfo';
+import WalletInfo from './WalletInfo.jsx';
 import { Link } from 'react-router-dom';
 
 const Header = () => {

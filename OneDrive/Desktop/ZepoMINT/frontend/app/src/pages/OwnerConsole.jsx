@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { useAccount, useWalletClient, usePublicClient } from 'wagmi';
 import { ethers } from 'ethers';
 import { computeWinner, mintNFT, getCurrentAuction, hasAuctionEnded, getBidCount, getAuctionContract } from '../utils/contract-interaction';
-import WalletInfo from '../components/WalletInfo';
+import WalletInfo from '../components/WalletInfo.jsx';
 
 const OwnerConsole = () => {
   const navigate = useNavigate();

@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { useAccount, useWalletClient, usePublicClient } from 'wagmi';
-import WalletInfo from '../components/WalletInfo';
+import WalletInfo from '../components/WalletInfo.jsx';
 import { createAuction, setContractAddress, getCurrentAuction } from '../utils/contract-interaction';
 
 // Import the deployment information
