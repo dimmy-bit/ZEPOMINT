@@ -2,13 +2,10 @@
   "github": {
     "silent": true
   },
-  "builds": [
+  "rewrites": [
     {
-      "src": "frontend/app/package.json",
-      "use": "@vercel/static-build",
-      "config": {
-        "distDir": "dist"
-      }
+      "source": "/(.*)",
+      "destination": "/frontend/app/dist/index.html"
     }
   ]
 }
