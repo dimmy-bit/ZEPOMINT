@@ -3,13 +3,11 @@ import { ethers } from 'ethers';
 import ZepoMintFHEData from '../abi/ZepoMINTFHEAuction.json' with { type: 'json' };
 
 // Get contract address from environment variables
-const CONTRACT_ADDRESS = import.meta.env.VITE_CONTRACT_ADDRESS || "0x0771aFDD5Ef859cDe4371dA1EafA62F07Ed2686a";
+const CONTRACT_ADDRESS = import.meta.env.VITE_CONTRACT_ADDRESS || "0x21095aedcc0205cB33042727698b8be984e4062a";
 
 // RPC URLs from environment variables
 const RPC_URLS = [
   import.meta.env.VITE_ALCHEMY_RPC_URL,
-  import.meta.env.VITE_INFURA_RPC_URL,
-  import.meta.env.VITE_ANKR_RPC_URL,
   import.meta.env.VITE_SEPOLIA_RPC_URL,
   "https://rpc.sepolia.org" // Public fallback
 ].filter(Boolean); // Remove any falsy values

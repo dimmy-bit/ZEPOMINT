@@ -3,7 +3,7 @@ import ZepoMintFHEData from '../abi/ZepoMINTFHEAuction.json' with { type: 'json'
 import { getEthersProviderFromWagmi } from './wagmi-provider-helper';
 
 // Contract address - will be set by main.jsx
-let CONTRACT_ADDRESS = import.meta.env.VITE_CONTRACT_ADDRESS || "0xCDeF6cf1a31Dd656C3904dBE0534B2452172f672";
+let CONTRACT_ADDRESS = import.meta.env.VITE_CONTRACT_ADDRESS || "0x21095aedcc0205cB33042727698b8be984e4062a";
 
 /**
  * Set the contract address
@@ -40,8 +40,6 @@ export function getContract(provider, signer = null) {
   
   // Create a proper provider from environment variables
   const rpcUrl = import.meta.env.VITE_ALCHEMY_RPC_URL || 
-                 import.meta.env.VITE_INFURA_RPC_URL || 
-                 import.meta.env.VITE_ANKR_RPC_URL || 
                  import.meta.env.VITE_SEPOLIA_RPC_URL ||
                  "https://rpc.sepolia.org";
   

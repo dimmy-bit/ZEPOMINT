@@ -16,8 +16,6 @@ export function getEthersProviderFromWagmi(wagmiProvider) {
   if (wagmiProvider && typeof wagmiProvider.request === 'function') {
     // Use the same RPC URL that's configured in the environment
     const rpcUrl = import.meta.env.VITE_ALCHEMY_RPC_URL || 
-                   import.meta.env.VITE_INFURA_RPC_URL || 
-                   import.meta.env.VITE_ANKR_RPC_URL || 
                    import.meta.env.VITE_SEPOLIA_RPC_URL ||
                    "https://rpc.sepolia.org";
     
@@ -26,8 +24,6 @@ export function getEthersProviderFromWagmi(wagmiProvider) {
   
   // Fallback to creating a new provider with the configured RPC URL
   const rpcUrl = import.meta.env.VITE_ALCHEMY_RPC_URL || 
-                 import.meta.env.VITE_INFURA_RPC_URL || 
-                 import.meta.env.VITE_ANKR_RPC_URL || 
                  import.meta.env.VITE_SEPOLIA_RPC_URL ||
                  "https://rpc.sepolia.org";
   
