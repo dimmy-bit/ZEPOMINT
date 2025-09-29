@@ -9,7 +9,8 @@
     "deploy:localhost": "npx hardhat run backend/scripts/deploy-zepamint-proper-improved.js --network localhost",
     "compile": "npx hardhat compile",
     "dev:setup": "node scripts/dev-setup.js",
-    "test:local": "node scripts/test-local.js"
+    "test:local": "node scripts/test-local.js",
+    "build": "cd frontend/app && npm run build"
   },
   "keywords": [
     "zama",
