@@ -4,7 +4,7 @@ const { ethers } = require("hardhat");
 async function main() {
   // Configuration
   const contractAddress = "0x7317A3152B16D1d2d5A9f0856233c739B5aA111e";
-  const provider = new ethers.JsonRpcProvider("https://eth-sepolia.g.alchemy.com/v2/kEl3NhorDcbSNncThw3-PbyCrtJcFsKe");
+  const provider = new ethers.JsonRpcProvider("https://eth-sepolia.g.alchemy.com/v2/JkwlX2jl-1k1wTZQPFHuC-YYuLcoldZk");
   
   // Contract ABI - simplified version with only the functions we need
   const abi = [

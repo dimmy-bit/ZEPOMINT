@@ -8,7 +8,7 @@ async function debugAuctionResponse() {
     console.log("=== Debugging Auction Response Format ===\n");
     
     // Use the same RPC URL as in the frontend
-    const rpcUrl = "https://eth-sepolia.g.alchemy.com/v2/kEl3NhorDcbSNncThw3-PbyCrtJcFsKe";
+    const rpcUrl = "https://eth-sepolia.g.alchemy.com/v2/JkwlX2jl-1k1wTZQPFHuC-YYuLcoldZk";
     const provider = new ethers.JsonRpcProvider(rpcUrl);
     
     // Get contract address from environment

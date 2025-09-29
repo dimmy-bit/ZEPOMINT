@@ -12,7 +12,7 @@ export const ZamaConfig = {
   hcuLimitContractAddress: "0x594BB474275918AF9609814E68C61B1587c5F838",
   
   // Network Configuration
-  networkUrl: import.meta.env.VITE_NETWORK_URL || "https://eth-sepolia.g.alchemy.com/v2/kEl3NhorDcbSNncThw3-PbyCrtJcFsKe",
+  networkUrl: import.meta.env.VITE_NETWORK_URL || "https://eth-sepolia.g.alchemy.com/v2/JkwlX2jl-1k1wTZQPFHuC-YYuLcoldZk",
   relayerUrl: import.meta.env.VITE_RELAYER_URL || "https://relayer.testnet.zama.cloud/",
   gatewayUrl: import.meta.env.VITE_GATEWAY_URL || "https://gateway.sepolia.zama.ai",
   

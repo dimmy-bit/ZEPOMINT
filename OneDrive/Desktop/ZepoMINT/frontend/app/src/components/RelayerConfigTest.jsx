@@ -30,7 +30,7 @@ const RelayerConfigTest = () => {
         verifyingContractAddressInputVerification: SepoliaConfig.verifyingContractAddressInputVerification,
         gatewayChainId: import.meta.env.VITE_GATEWAY_CHAIN_ID || SepoliaConfig.gatewayChainId,
         chainId: import.meta.env.VITE_CHAIN_ID || 11155111,
-        network: import.meta.env.VITE_NETWORK_URL || SepoliaConfig.network || 'https://eth-sepolia.public.blastapi.io'
+        network: import.meta.env.VITE_NETWORK_URL || 'https://eth-sepolia.g.alchemy.com/v2/JkwlX2jl-1k1wTZQPFHuC-YYuLcoldZk' || SepoliaConfig.network || 'https://eth-sepolia.public.blastapi.io'
       };
       
       console.log('Relayer configuration:', config);

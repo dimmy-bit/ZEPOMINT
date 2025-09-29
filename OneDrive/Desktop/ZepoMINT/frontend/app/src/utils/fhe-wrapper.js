@@ -186,7 +186,7 @@ export async function fetchPublicKey() {
     // Create a temporary instance to fetch public key
     const tempInstance = await relayerSDK.createInstance({
       ...relayerSDK.SepoliaConfig,
-      network: import.meta.env.VITE_NETWORK_URL || "https://eth-sepolia.g.alchemy.com/v2/kEl3NhorDcbSNncThw3-PbyCrtJcFsKe"
+      network: import.meta.env.VITE_NETWORK_URL || "https://eth-sepolia.g.alchemy.com/v2/JkwlX2jl-1k1wTZQPFHuC-YYuLcoldZk"
     });
     
     // Get public key
@@ -311,7 +311,7 @@ async function createFHEInstanceWithFallback(config, provider) {
       else if (provider && typeof provider.getSigner === 'function') {
         console.log('Provider is ethers BrowserProvider, using fallback network URL');
         // For ethers BrowserProvider, use network URL instead
-        networkParam = import.meta.env.VITE_NETWORK_URL || "https://eth-sepolia.g.alchemy.com/v2/kEl3NhorDcbSNncThw3-PbyCrtJcFsKe";
+        networkParam = import.meta.env.VITE_NETWORK_URL || "https://eth-sepolia.g.alchemy.com/v2/JkwlX2jl-1k1wTZQPFHuC-YYuLcoldZk";
       } 
       else if (typeof provider === 'object' && provider !== null && Object.keys(provider).length > 0) {
         // If it's a valid EIP-1193 provider object
@@ -321,12 +321,12 @@ async function createFHEInstanceWithFallback(config, provider) {
       else {
         // Fallback to network URL
         console.log('Provider is invalid, using fallback network URL');
-        networkParam = import.meta.env.VITE_NETWORK_URL || "https://eth-sepolia.g.alchemy.com/v2/kEl3NhorDcbSNncThw3-PbyCrtJcFsKe";
+        networkParam = import.meta.env.VITE_NETWORK_URL || "https://eth-sepolia.g.alchemy.com/v2/JkwlX2jl-1k1wTZQPFHuC-YYuLcoldZk";
       }
     } else {
       // No provider, use network URL
       console.log('No provider provided, using fallback network URL');
-      networkParam = import.meta.env.VITE_NETWORK_URL || "https://eth-sepolia.g.alchemy.com/v2/kEl3NhorDcbSNncThw3-PbyCrtJcFsKe";
+      networkParam = import.meta.env.VITE_NETWORK_URL || "https://eth-sepolia.g.alchemy.com/v2/JkwlX2jl-1k1wTZQPFHuC-YYuLcoldZk";
     }
     
     console.log('Network parameter for Zama SDK:', networkParam);
@@ -524,7 +524,7 @@ export async function getFHEInstance() {
     console.log("Creating FHE instance with config:", config);
     
     // For Zama SDK, we can pass network URL directly
-    const networkUrl = import.meta.env.VITE_NETWORK_URL || "https://eth-sepolia.g.alchemy.com/v2/kEl3NhorDcbSNncThw3-PbyCrtJcFsKe";
+    const networkUrl = import.meta.env.VITE_NETWORK_URL || "https://eth-sepolia.g.alchemy.com/v2/JkwlX2jl-1k1wTZQPFHuC-YYuLcoldZk";
     
     // Use the new approach with CDN loading
     await loadRelayerSDK();
@@ -617,7 +617,7 @@ export async function initializeZamaRelayer(relayerUrl) {
     // Create a real relayer instance
     const config = {
       ...relayerSDK.SepoliaConfig,
-      network: import.meta.env.VITE_NETWORK_URL || "https://eth-sepolia.g.alchemy.com/v2/kEl3NhorDcbSNncThw3-PbyCrtJcFsKe"
+      network: import.meta.env.VITE_NETWORK_URL || "https://eth-sepolia.g.alchemy.com/v2/JkwlX2jl-1k1wTZQPFHuC-YYuLcoldZk"
     };
     
     console.log("Initializing Zama relayer with config:", config);
@@ -705,7 +705,7 @@ export async function generateBidInputProof(instance, contractAddress, userAddre
 export function getSepoliaConfig() {
   return {
     chainId: 11155111,
-    rpcUrl: import.meta.env.VITE_NETWORK_URL || "https://eth-sepolia.g.alchemy.com/v2/kEl3NhorDcbSNncThw3-PbyCrtJcFsKe",
+    rpcUrl: import.meta.env.VITE_NETWORK_URL || "https://eth-sepolia.g.alchemy.com/v2/JkwlX2jl-1k1wTZQPFHuC-YYuLcoldZk",
     networkName: "Sepolia"
   };
 }

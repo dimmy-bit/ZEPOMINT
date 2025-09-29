@@ -9,7 +9,7 @@ const mockWagmiProvider = {
   request: async (params) => {
     console.log("Mock wagmi provider request:", params);
     // For testing, we'll create a real provider and forward the request
-    const rpcUrl = "https://eth-sepolia.g.alchemy.com/v2/kEl3NhorDcbSNncThw3-PbyCrtJcFsKe";
+    const rpcUrl = "https://eth-sepolia.g.alchemy.com/v2/JkwlX2jl-1k1wTZQPFHuC-YYuLcoldZk";
     const provider = new ethers.JsonRpcProvider(rpcUrl);
     
     try {
