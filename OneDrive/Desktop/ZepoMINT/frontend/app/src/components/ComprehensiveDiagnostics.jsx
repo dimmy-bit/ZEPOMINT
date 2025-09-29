@@ -61,7 +61,7 @@ const ComprehensiveDiagnostics = () => {
       addResult('Loading Zama relayer SDK...', 'info');
       
       // Dynamically import the relayer SDK
-      const { createInstance, SepoliaConfig } = await import('@zama-fhe/relayer-sdk/web');
+      const { createInstance } = await import('@zama-fhe/relayer-sdk/web');
       addResult('✓ Zama relayer SDK loaded successfully', 'success');
       
       // Check if environment variables are properly set
@@ -81,14 +81,16 @@ const ComprehensiveDiagnostics = () => {
       
       // Create configuration
       const config = {
-        ...SepoliaConfig,
+        chainId: parseInt(import.meta.env.VITE_CHAIN_ID) || 11155111,
+        gatewayChainId: parseInt(import.meta.env.VITE_GATEWAY_CHAIN_ID) || 55815,
         relayerUrl: relayerUrl,
         kmsContractAddress: kmsContractAddress,
-        aclContractAddress: import.meta.env.VITE_ACL_CONTRACT || SepoliaConfig.aclContractAddress,
-        inputVerifierContractAddress: import.meta.env.VITE_INPUT_VERIFIER_CONTRACT || SepoliaConfig.inputVerifierContractAddress,
-        verifyingContractAddressDecryption: import.meta.env.VITE_DECRYPTION_ORACLE_CONTRACT || SepoliaConfig.verifyingContractAddressDecryption,
-        fhevmExecutorContract: import.meta.env.VITE_FHEVM_EXECUTOR_CONTRACT || SepoliaConfig.fhevmExecutorContract,
-        hcuLimitContract: import.meta.env.VITE_HCU_LIMIT_CONTRACT || SepoliaConfig.hcuLimitContract
+        aclContractAddress: import.meta.env.VITE_ACL_CONTRACT || '0x687820221192C5B662b25367F70076A37bc79b6c',
+        inputVerifierContractAddress: import.meta.env.VITE_INPUT_VERIFIER_CONTRACT || '0xbc91f3daD1A5F19F8390c400196e58073B6a0BC4',
+        verifyingContractAddressDecryption: import.meta.env.VITE_DECRYPTION_ORACLE_CONTRACT || '0xb6E160B1ff80D67Bfe90A85eE06Ce0A2613607D1',
+        verifyingContractAddressInputVerification: import.meta.env.VITE_INPUT_VERIFICATION_CONTRACT || '0x7048C39f048125eDa9d678AEbaDfB22F7900a29F',
+        fhevmExecutorContract: import.meta.env.VITE_FHEVM_EXECUTOR_CONTRACT || '0x848B0066793BcC60346Da1F49049357399B8D595',
+        hcuLimitContract: import.meta.env.VITE_HCU_LIMIT_CONTRACT || '0x594BB474275918AF9609814E68C61B1587c5F838'
       };
       
       addResult('Configuration created, attempting to create instance...', 'info');
