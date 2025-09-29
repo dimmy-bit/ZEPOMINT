@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test Page</title>
+</head>
+<body>
+    <h1>ZepoMint Test Page</h1>
+    <p>If you can see this, the server is working correctly.</p>
+    <script type="module">
+        console.log('Testing environment variables...');
+        
+        console.log('VITE_RAINBOWKIT_PROJECT_ID:', import.meta.env.VITE_RAINBOWKIT_PROJECT_ID);
+        console.log('VITE_ALCHEMY_RPC_URL:', import.meta.env.VITE_ALCHEMY_RPC_URL);
+        console.log('VITE_INFURA_RPC_URL:', import.meta.env.VITE_INFURA_RPC_URL);
+        console.log('VITE_ANKR_RPC_URL:', import.meta.env.VITE_ANKR_RPC_URL);
+        console.log('VITE_RELAYER_URL:', import.meta.env.VITE_RELAYER_URL);
+        console.log('VITE_KMS_VERIFIER_CONTRACT:', import.meta.env.VITE_KMS_VERIFIER_CONTRACT);
+        console.log('VITE_ACL_CONTRACT:', import.meta.env.VITE_ACL_CONTRACT);
+        console.log('VITE_INPUT_VERIFIER_CONTRACT:', import.meta.env.VITE_INPUT_VERIFIER_CONTRACT);
+        console.log('VITE_DECRYPTION_ORACLE_CONTRACT:', import.meta.env.VITE_DECRYPTION_ORACLE_CONTRACT);
+        
+        // Test if we can import the relayer SDK
+        try {
+            import('/src/utils/fhe-wrapper.js').then((module) => {
+                console.log('FHE wrapper imported successfully');
+            }).catch(error => {
+                console.error('Error importing FHE wrapper:', error);
+            });
+        } catch (error) {
+            console.error('Error importing FHE wrapper:', error);
+        }
+    </script>
+</body>
+</html>
