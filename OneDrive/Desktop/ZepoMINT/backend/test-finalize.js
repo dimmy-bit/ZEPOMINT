@@ -7,7 +7,7 @@ async function main() {
   console.log("Contract Address:", contractAddress);
   
   // Using Sepolia RPC URL from .env
-  const provider = new ethers.JsonRpcProvider("https://eth-sepolia.g.alchemy.com/v2/nik8koBXVHXoYthLsBz7ttQ6F27wkwj-");
+  const provider = new ethers.JsonRpcProvider(process.env.SEPOLIA_RPC_URL || "https://rpc.sepolia.org");
   const privateKey = "0xb57e1b6cbbed376ed8d61d93c4eb052c1aeb365023a429e093b14c9b033b4060"; // Using private key from .env
   const wallet = new ethers.Wallet(privateKey, provider);
   

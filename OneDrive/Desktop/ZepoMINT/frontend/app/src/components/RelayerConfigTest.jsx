@@ -31,7 +31,7 @@ const RelayerConfigTest = () => {
         verifyingContractAddressInputVerification: import.meta.env.VITE_INPUT_VERIFICATION_CONTRACT || '0x7048C39f048125eDa9d678AEbaDfB22F7900a29F',
         fhevmExecutorContract: import.meta.env.VITE_FHEVM_EXECUTOR_CONTRACT || '0x848B0066793BcC60346Da1F49049357399B8D595',
         hcuLimitContract: import.meta.env.VITE_HCU_LIMIT_CONTRACT || '0x594BB474275918AF9609814E68C61B1587c5F838',
-        network: import.meta.env.VITE_NETWORK_URL || 'https://eth-sepolia.g.alchemy.com/v2/JkwlX2jl-1k1wTZQPFHuC-YYuLcoldZk'
+        network: import.meta.env.VITE_NETWORK_URL || 'https://rpc.sepolia.org'
       };
       
       console.log('Relayer configuration:', config);

@@ -8,7 +8,7 @@ async function testContractCall() {
     console.log("=== Testing Contract Call ===\n");
     
     // Use the same RPC URL as in the frontend
-    const rpcUrl = "https://eth-sepolia.g.alchemy.com/v2/JkwlX2jl-1k1wTZQPFHuC-YYuLcoldZk";
+    const rpcUrl = import.meta.env.VITE_NETWORK_URL || "https://rpc.sepolia.org";
     const provider = new ethers.JsonRpcProvider(rpcUrl);
     
     // Get contract address from environment

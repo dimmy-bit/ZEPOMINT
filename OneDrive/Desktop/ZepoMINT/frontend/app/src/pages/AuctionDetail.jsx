@@ -30,11 +30,7 @@ const AuctionDetail = () => {
         setError('');
         
         // Use direct RPC provider for read operations instead of wagmi publicClient
-        const rpcUrl = import.meta.env.VITE_ALCHEMY_RPC_URL || 
-                       import.meta.env.VITE_INFURA_RPC_URL || 
-                       import.meta.env.VITE_ANKR_RPC_URL || 
-                       import.meta.env.VITE_SEPOLIA_RPC_URL ||
-                       "https://rpc.sepolia.org";
+        const rpcUrl = import.meta.env.VITE_NETWORK_URL || "https://rpc.sepolia.org";
         
         // Create a temporary provider just for this read operation
         const tempProvider = new ethers.JsonRpcProvider(rpcUrl);
@@ -318,11 +314,7 @@ const AuctionDetail = () => {
                       const fetchAuctionData = async () => {
                         try {
                           // Use direct RPC provider for read operations instead of wagmi publicClient
-                          const rpcUrl = import.meta.env.VITE_ALCHEMY_RPC_URL || 
-                                         import.meta.env.VITE_INFURA_RPC_URL || 
-                                         import.meta.env.VITE_ANKR_RPC_URL || 
-                                         import.meta.env.VITE_SEPOLIA_RPC_URL ||
-                                         "https://rpc.sepolia.org";
+                          const rpcUrl = import.meta.env.VITE_NETWORK_URL || "https://rpc.sepolia.org";
                           
                           // Create a temporary provider just for this read operation
                           const tempProvider = new ethers.JsonRpcProvider(rpcUrl);

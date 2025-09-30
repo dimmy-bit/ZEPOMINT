@@ -8,7 +8,7 @@ async function checkContract() {
     console.log("=== Checking Contract Status ===\n");
     
     // Use the same RPC URL as in the frontend
-    const rpcUrl = "https://eth-sepolia.g.alchemy.com/v2/JkwlX2jl-1k1wTZQPFHuC-YYuLcoldZk";
+    const rpcUrl = import.meta.env.VITE_NETWORK_URL || "https://rpc.sepolia.org";
     const provider = new ethers.JsonRpcProvider(rpcUrl);
     
     // Use the NEW contract address that was just deployed

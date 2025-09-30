@@ -6,7 +6,7 @@ import { getCurrentAuction, getBidCount, hasAuctionEnded } from './contract-inte
 async function testAuctionDisplay() {
   try {
     // Use the same RPC URL as in the frontend
-    const rpcUrl = "https://eth-sepolia.g.alchemy.com/v2/JkwlX2jl-1k1wTZQPFHuC-YYuLcoldZk";
+    const rpcUrl = import.meta.env.VITE_NETWORK_URL || "https://rpc.sepolia.org";
     const provider = new ethers.JsonRpcProvider(rpcUrl);
     
     console.log("Testing auction display with provider:", provider);

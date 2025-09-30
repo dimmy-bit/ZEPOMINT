@@ -4,7 +4,7 @@ const { ethers } = require('ethers');
 async function main() {
   // Configuration
   const contractAddress = "0x7317A3152B16D1d2d5A9f0856233c739B5aA111e";
-  const provider = new ethers.JsonRpcProvider("https://eth-sepolia.g.alchemy.com/v2/JkwlX2jl-1k1wTZQPFHuC-YYuLcoldZk");
+  const provider = new ethers.JsonRpcProvider(process.env.SEPOLIA_RPC_URL || "https://rpc.sepolia.org");
   
   // Contract ABI - simplified version
   const abi = [
