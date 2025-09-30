@@ -195,7 +195,7 @@ export async function fetchPublicKey() {
       verifyingContractAddressInputVerification: import.meta.env.VITE_INPUT_VERIFICATION_CONTRACT || "0x7048C39f048125eDa9d678AEbaDfB22F7900a29F",
       fhevmExecutorContract: import.meta.env.VITE_FHEVM_EXECUTOR_CONTRACT || "0x848B0066793BcC60346Da1F49049357399B8D595",
       hcuLimitContract: import.meta.env.VITE_HCU_LIMIT_CONTRACT || "0x594BB474275918AF9609814E68C61B1587c5F838",
-      network: import.meta.env.VITE_NETWORK_URL || "https://eth-sepolia.g.alchemy.com/v2/JkwlX2jl-1k1wTZQPFHuC-YYuLcoldZk"
+      network: import.meta.env.VITE_NETWORK_URL || "https://rpc.sepolia.org"
     });
     
     // Get public key
@@ -320,7 +320,7 @@ async function createFHEInstanceWithFallback(config, provider) {
       else if (provider && typeof provider.getSigner === 'function') {
         console.log('Provider is ethers BrowserProvider, using fallback network URL');
         // For ethers BrowserProvider, use network URL instead
-        networkParam = import.meta.env.VITE_NETWORK_URL || "https://eth-sepolia.g.alchemy.com/v2/JkwlX2jl-1k1wTZQPFHuC-YYuLcoldZk";
+        networkParam = import.meta.env.VITE_NETWORK_URL || "https://rpc.sepolia.org";
       } 
       else if (typeof provider === 'object' && provider !== null && Object.keys(provider).length > 0) {
         // If it's a valid EIP-1193 provider object
@@ -330,12 +330,12 @@ async function createFHEInstanceWithFallback(config, provider) {
       else {
         // Fallback to network URL
         console.log('Provider is invalid, using fallback network URL');
-        networkParam = import.meta.env.VITE_NETWORK_URL || "https://eth-sepolia.g.alchemy.com/v2/JkwlX2jl-1k1wTZQPFHuC-YYuLcoldZk";
+        networkParam = import.meta.env.VITE_NETWORK_URL || "https://rpc.sepolia.org";
       }
     } else {
       // No provider, use network URL
       console.log('No provider provided, using fallback network URL');
-      networkParam = import.meta.env.VITE_NETWORK_URL || "https://eth-sepolia.g.alchemy.com/v2/JkwlX2jl-1k1wTZQPFHuC-YYuLcoldZk";
+      networkParam = import.meta.env.VITE_NETWORK_URL || "https://rpc.sepolia.org";
     }
     
     console.log('Network parameter for Zama SDK:', networkParam);
@@ -551,7 +551,7 @@ export async function getFHEInstance() {
     console.log("Creating FHE instance with config:", config);
     
     // For Zama SDK, we can pass network URL directly
-    const networkUrl = import.meta.env.VITE_NETWORK_URL || "https://eth-sepolia.g.alchemy.com/v2/JkwlX2jl-1k1wTZQPFHuC-YYuLcoldZk";
+    const networkUrl = import.meta.env.VITE_NETWORK_URL || "https://rpc.sepolia.org";
     
     // Use the new approach with CDN loading
     await loadRelayerSDK();
@@ -569,7 +569,7 @@ export async function getFHEInstance() {
       verifyingContractAddressInputVerification: import.meta.env.VITE_INPUT_VERIFICATION_CONTRACT || "0x7048C39f048125eDa9d678AEbaDfB22F7900a29F",
       fhevmExecutorContract: import.meta.env.VITE_FHEVM_EXECUTOR_CONTRACT || "0x848B0066793BcC60346Da1F49049357399B8D595",
       hcuLimitContract: import.meta.env.VITE_HCU_LIMIT_CONTRACT || "0x594BB474275918AF9609814E68C61B1587c5F838",
-      network: networkUrl
+      network: import.meta.env.VITE_NETWORK_URL || "https://rpc.sepolia.org"
     };
     
     const instance = await relayerSDK.createInstance(instanceConfig);
@@ -662,7 +662,7 @@ export async function initializeZamaRelayer(relayerUrl) {
       verifyingContractAddressInputVerification: import.meta.env.VITE_INPUT_VERIFICATION_CONTRACT || "0x7048C39f048125eDa9d678AEbaDfB22F7900a29F",
       fhevmExecutorContract: import.meta.env.VITE_FHEVM_EXECUTOR_CONTRACT || "0x848B0066793BcC60346Da1F49049357399B8D595",
       hcuLimitContract: import.meta.env.VITE_HCU_LIMIT_CONTRACT || "0x594BB474275918AF9609814E68C61B1587c5F838",
-      network: import.meta.env.VITE_NETWORK_URL || "https://eth-sepolia.g.alchemy.com/v2/JkwlX2jl-1k1wTZQPFHuC-YYuLcoldZk"
+      network: import.meta.env.VITE_NETWORK_URL || "https://rpc.sepolia.org"
     };
     
     console.log("Initializing Zama relayer with config:", config);
@@ -750,7 +750,7 @@ export async function generateBidInputProof(instance, contractAddress, userAddre
 export function getSepoliaConfig() {
   return {
     chainId: 11155111,
-    rpcUrl: import.meta.env.VITE_NETWORK_URL || "https://eth-sepolia.g.alchemy.com/v2/JkwlX2jl-1k1wTZQPFHuC-YYuLcoldZk",
+    rpcUrl: import.meta.env.VITE_NETWORK_URL || "https://rpc.sepolia.org",
     networkName: "Sepolia"
   };
 }

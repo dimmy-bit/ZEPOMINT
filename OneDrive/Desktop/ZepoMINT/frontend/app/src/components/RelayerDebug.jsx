@@ -54,19 +54,18 @@ const RelayerDebug = () => {
         // Try to import and initialize the relayer SDK
         try {
           console.log('Attempting to import relayer SDK...');
-          const { SepoliaConfig } = await import('@zama-fhe/relayer-sdk/web');
-          console.log('SepoliaConfig:', SepoliaConfig);
+          await import('@zama-fhe/relayer-sdk/web');
           
-          // Check if all required addresses are in SepoliaConfig
-          const requiredConfigFields = [
-            'kmsContractAddress',
-            'aclContractAddress',
-            'inputVerifierContractAddress'
+          // Check if all required environment variables are set
+          const requiredEnvVars = [
+            'VITE_KMS_VERIFIER_CONTRACT',
+            'VITE_ACL_CONTRACT',
+            'VITE_INPUT_VERIFIER_CONTRACT'
           ];
           
-          for (const field of requiredConfigFields) {
-            if (!SepoliaConfig[field]) {
-              errors.push(`Missing ${field} in SepoliaConfig`);
+          for (const envVar of requiredEnvVars) {
+            if (!import.meta.env[envVar]) {
+              errors.push(`Missing environment variable: ${envVar}`);
             }
           }
           

@@ -12,9 +12,7 @@ const SimpleZamaTest = () => {
       console.log("Testing Zama SDK with minimal configuration...");
       
       // Import the relayer SDK dynamically
-      const { createInstance, SepoliaConfig } = await import('@zama-fhe/relayer-sdk/web');
-      
-      console.log("SepoliaConfig:", SepoliaConfig);
+      const { createInstance } = await import('@zama-fhe/relayer-sdk/web');
       
       // Use minimal configuration - only the relayer URL
       const config = {
