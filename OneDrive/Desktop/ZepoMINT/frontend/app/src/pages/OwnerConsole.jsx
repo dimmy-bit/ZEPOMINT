@@ -431,4 +431,99 @@ const OwnerConsole = () => {
                           ? 'Winner determined. You can now mint the NFT or direct the winner to the minting page.' 
                           : auctionEnded 
                             ? `Auction ended with ${bidCount} bid(s). Click "Run Onchain Compute" to determine winner.` 
-                            : `Auction
+                            : `Auction is active. ${bidCount} bid(s) placed so far.`
+                        }
+                      </p>
+                    </div>
+                  </div>
+                  <div className="flex items-center">
+                    <button 
+                      className={`px-4 py-2 rounded-lg ${
+                        activeTab === 'compute' ? 'bg-blue-500 text-white' : 'bg-white text-blue-500 border border-blue-500'
+                      }`}
+                      onClick={() => setActiveTab('compute')}
+                    >
+                      Run Onchain Compute
+                    </button>
+                    <button 
+                      className={`px-4 py-2 rounded-lg ${
+                        activeTab === 'mint' ? 'bg-blue-500 text-white' : 'bg-white text-blue-500 border border-blue-500'
+                      }`}
+                      onClick={() => setActiveTab('mint')}
+                    >
+                      Mint NFT
+                    </button>
+                    <button 
+                      className={`px-4 py-2 rounded-lg ${
+                        activeTab === 'ciphertexts' ? 'bg-blue-500 text-white' : 'bg-white text-blue-500 border border-blue-500'
+                      }`}
+                      onClick={() => setActiveTab('ciphertexts')}
+                    >
+                      Fetch Ciphertexts
+                    </button>
+                    <button 
+                      className={`px-4 py-2 rounded-lg ${
+                        activeTab === 'test' ? 'bg-blue-500 text-white' : 'bg-white text-blue-500 border border-blue-500'
+                      }`}
+                      onClick={() => setActiveTab('test')}
+                    >
+                      End-to-End Test
+                    </button>
+                  </div>
+                </div>
+              </div>
+            )}
+            
+            {/* Tab Content */}
+            {activeTab === 'compute' && (
+              <div className="mt-4">
+                <button 
+                  className="px-4 py-2 bg-blue-500 text-white rounded-lg"
+                  onClick={handleComputeWinner}
+                  disabled={isProcessing}
+                >
+                  {isProcessing ? 'Processing...' : 'Compute Winner'}
+                </button>
+              </div>
+            )}
+            {activeTab === 'mint' && (
+              <div className="mt-4">
+                <button 
+                  className="px-4 py-2 bg-blue-500 text-white rounded-lg"
+                  onClick={handleMintNFT}
+                  disabled={isProcessing}
+                >
+                  {isProcessing ? 'Processing...' : 'Mint NFT'}
+                </button>
+              </div>
+            )}
+            {activeTab === 'ciphertexts' && (
+              <div className="mt-4">
+                <button 
+                  className="px-4 py-2 bg-blue-500 text-white rounded-lg"
+                  onClick={handleFetchCiphertexts}
+                  disabled={isProcessing}
+                >
+                  {isProcessing ? 'Processing...' : 'Fetch Ciphertexts'}
+                </button>
+              </div>
+            )}
+            {activeTab === 'test' && (
+              <div className="mt-4">
+                <button 
+                  className="px-4 py-2 bg-blue-500 text-white rounded-lg"
+                  onClick={handleEndToEndTest}
+                  disabled={isProcessing}
+                >
+                  {isProcessing ? 'Processing...' : 'Run End-to-End Test'}
+                </button>
+              </div>
+            )}
+          </div>
+        )}
+      </div>
+    </div>
+  );
+};
+
+export default OwnerConsole;
