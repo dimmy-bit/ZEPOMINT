@@ -91,10 +91,53 @@ async function createFHEInstance(provider) {
     
     const relayerSDK = window.relayerSDK;
     
+    // Handle different provider types correctly
+    console.log('Processing provider for Zama SDK in createFHEInstance...');
+    
+    let networkParam;
+    if (provider) {
+      // Check if it's an EIP-1193 provider (MetaMask, etc.)
+      if (typeof provider.request === 'function') {
+        console.log('Provider is EIP-1193 provider, using it directly');
+        networkParam = provider;
+      } 
+      // If it's an ethers BrowserProvider, we need to extract the underlying provider
+      else if (provider && typeof provider.getSigner === 'function') {
+        console.log('Provider is ethers BrowserProvider, using fallback network URL');
+        // For ethers BrowserProvider, use network URL instead
+        networkParam = import.meta.env.VITE_NETWORK_URL || "https://rpc.sepolia.org";
+      } 
+      else if (typeof provider === 'object' && provider !== null && Object.keys(provider).length > 0) {
+        // If it's a valid EIP-1193 provider object
+        console.log('Using provider object directly');
+        networkParam = provider;
+      } 
+      else {
+        // Fallback to network URL
+        console.log('Provider is invalid, using fallback network URL');
+        networkParam = import.meta.env.VITE_NETWORK_URL || "https://rpc.sepolia.org";
+      }
+    } else {
+      // No provider, use network URL
+      console.log('No provider provided, using fallback network URL');
+      networkParam = import.meta.env.VITE_NETWORK_URL || "https://rpc.sepolia.org";
+    }
+    
+    console.log('Network parameter for Zama SDK:', networkParam);
+    
     // Get the Sepolia config from the SDK
     const config = {
-      ...relayerSDK.SepoliaConfig,
-      network: provider
+      chainId: parseInt(import.meta.env.VITE_CHAIN_ID) || 11155111,
+      gatewayChainId: parseInt(import.meta.env.VITE_GATEWAY_CHAIN_ID) || 55815,
+      relayerUrl: import.meta.env.VITE_RELAYER_URL || "https://relayer.testnet.zama.cloud/",
+      kmsContractAddress: import.meta.env.VITE_KMS_VERIFIER_CONTRACT || "0x1364cBBf2cDF5032C47d8226a6f6FBD2AFCDacAC",
+      aclContractAddress: import.meta.env.VITE_ACL_CONTRACT || "0x687820221192C5B662b25367F70076A37bc79b6c",
+      inputVerifierContractAddress: import.meta.env.VITE_INPUT_VERIFIER_CONTRACT || "0xbc91f3daD1A5F19F8390c400196e58073B6a0BC4",
+      verifyingContractAddressDecryption: import.meta.env.VITE_DECRYPTION_ORACLE_CONTRACT || "0xb6E160B1ff80D67Bfe90A85eE06Ce0A2613607D1",
+      verifyingContractAddressInputVerification: import.meta.env.VITE_INPUT_VERIFICATION_CONTRACT || "0x7048C39f048125eDa9d678AEbaDfB22F7900a29F",
+      fhevmExecutorContract: import.meta.env.VITE_FHEVM_EXECUTOR_CONTRACT || "0x848B0066793BcC60346Da1F49049357399B8D595",
+      hcuLimitContract: import.meta.env.VITE_HCU_LIMIT_CONTRACT || "0x594BB474275918AF9609814E68C61B1587c5F838",
+      network: networkParam
     };
     
     // Create the instance
