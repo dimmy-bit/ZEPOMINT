@@ -227,7 +227,7 @@ src/
 
 ## 📜 License
 
-MIT License © 2025 — **ZepoMINT Team**
+MIT License © 2025 — **ZepoMINT **
 
 ---
 
