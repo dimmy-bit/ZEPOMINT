@@ -1,0 +1,12 @@
+{
+  "contractAddress": "0x1C9D5B1f795cbEc1dCe2c418B9F903e7DD07A510",
+  "owner": "0x20dcd85aC3d79D97E1eC05375c45f4d94dD9371a",
+  "network": "sepolia",
+  "timestamp": "2025-10-26T23:25:55.035Z",
+  "auctionDetails": {
+    "metadataCID": "QmWgL11go85J4UpC5sZCqZyJzKNX9YYbWsgiWz9Sj9X5bD",
+    "endTime": "1761524736",
+    "finalized": false,
+    "initialized": true
+  }
+}
