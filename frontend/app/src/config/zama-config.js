@@ -17,7 +17,7 @@ export const ZamaConfig = {
   gatewayUrl: import.meta.env.VITE_GATEWAY_URL || "https://gateway.sepolia.zama.ai",
   
   // Contract address for the deployed contract
-  contractAddress: "0xbb666CB65Ba708f68Cdfc913a0C7e6E2830E1C83"
+  contractAddress: "0xB9451B1fdD5CaBe38C1de2C64136ae47bb930725"
 };
 
 export default ZamaConfig;
