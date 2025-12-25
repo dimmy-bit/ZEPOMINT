@@ -3,7 +3,7 @@ import { ethers } from 'ethers';
 import ZepoMintFHEData from '../abi/ZepoMINTFHEAuctionSmartFinalizeFixed.json' with { type: 'json' };
 
 // Get contract address from environment variables
-const CONTRACT_ADDRESS = import.meta.env.VITE_CONTRACT_ADDRESS || "0x21095aedcc0205cB33042727698b8be984e4062a";
+const CONTRACT_ADDRESS = import.meta.env.VITE_CONTRACT_ADDRESS || "0xB9451B1fdD5CaBe38C1de2C64136ae47bb930725";
 
 // RPC URLs from environment variables
 const RPC_URLS = [
