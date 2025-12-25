@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Simple Zama Test</title>
+</head>
+<body>
+    <h1>Simple Zama Test</h1>
+    <div id="results">
+        <p>Testing environment variables...</p>
+    </div>
+
+    <script type="module">
+        // Test environment variables
+        const results = document.getElementById('results');
+        let html = '<h2>Environment Variables Test</h2>';
+        
+        const envVars = [
+            'VITE_RELAYER_URL',
+            'VITE_KMS_VERIFIER_CONTRACT',
+            'VITE_ACL_CONTRACT',
+            'VITE_INPUT_VERIFIER_CONTRACT'
+        ];
+        
+        envVars.forEach(varName => {
+            const value = import.meta.env[varName];
+            if (value) {
+                html += `<p style="color: green;">✓ ${varName}: ${value}</p>`;
+            } else {
+                html += `<p style="color: red;">✗ ${varName}: NOT SET</p>`;
+            }
+        });
+        
+        // Test relayer connectivity
+        if (import.meta.env.VITE_RELAYER_URL) {
+            html += `<h2>Relayer Connectivity Test</h2>`;
+            html += `<p>Testing connection to: ${import.meta.env.VITE_RELAYER_URL}/v1/keyurl</p>`;
+            html += '<div id="relayer-result">Testing...</div>';
+            
+            // Test the relayer endpoint
+            fetch(`${import.meta.env.VITE_RELAYER_URL}/v1/keyurl`)
+                .then(response => {
+                    document.getElementById('relayer-result').innerHTML = 
+                        `<p>Status: ${response.status} ${response.statusText}</p>`;
+                    return response.text();
+                })
+                .then(text => {
+                    try {
+                        const json = JSON.parse(text);
+                        document.getElementById('relayer-result').innerHTML += 
+                            `<pre>${JSON.stringify(json, null, 2)}</pre>`;
+                    } catch (e) {
+                        document.getElementById('relayer-result').innerHTML += 
+                            `<p>Response (not JSON): ${text.substring(0, 200)}...</p>`;
+                    }
+                })
+                .catch(error => {
+                    document.getElementById('relayer-result').innerHTML = 
+                        `<p style="color: red;">Error: ${error.message}</p>`;
+                });
+        } else {
+            html += '<p style="color: red;">VITE_RELAYER_URL is not defined!</p>';
+        }
+        
+        results.innerHTML = html;
+    </script>
+</body>
+</html>
